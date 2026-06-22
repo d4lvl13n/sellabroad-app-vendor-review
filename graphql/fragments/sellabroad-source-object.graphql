@@ -1,0 +1,121 @@
+fragment SellAbroadSourceObject on OrderOrCheckout {
+  __typename
+  ... on Checkout {
+    id
+    email
+    languageCode
+    channel {
+      slug
+      currencyCode
+    }
+    billingAddress {
+      firstName
+      lastName
+      phone
+      streetAddress1
+      streetAddress2
+      city
+      postalCode
+      countryArea
+      companyName
+      country {
+        code
+        country
+      }
+    }
+    shippingAddress {
+      firstName
+      lastName
+      phone
+      streetAddress1
+      streetAddress2
+      city
+      postalCode
+      countryArea
+      companyName
+      country {
+        code
+        country
+      }
+    }
+    lines {
+      id
+      quantity
+      variant {
+        sku
+        name
+        weight {
+          value
+          unit
+        }
+        product {
+          name
+          id
+          weight {
+            value
+            unit
+          }
+        }
+      }
+      totalPrice {
+        gross {
+          amount
+          currency
+        }
+      }
+      unitPrice {
+        gross {
+          amount
+          currency
+        }
+      }
+    }
+    totalPrice {
+      gross {
+        amount
+        currency
+      }
+    }
+    subtotalPrice {
+      gross {
+        amount
+        currency
+      }
+    }
+    shippingPrice {
+      gross {
+        amount
+        currency
+      }
+    }
+    discount {
+      amount
+      currency
+    }
+    shippingMethods {
+      id
+      name
+      price {
+        amount
+        currency
+      }
+    }
+    deliveryMethod {
+      ... on ShippingMethod {
+        id
+        name
+      }
+    }
+  }
+  ... on Order {
+    id
+    number
+    userEmail
+    total {
+      gross {
+        amount
+        currency
+      }
+    }
+  }
+}
