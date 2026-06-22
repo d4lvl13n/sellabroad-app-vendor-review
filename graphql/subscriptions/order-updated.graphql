@@ -1,0 +1,30 @@
+subscription OrderUpdated {
+  event {
+    ... on OrderUpdated {
+      issuedAt
+      order {
+        id
+        number
+        status
+        userEmail
+        channel {
+          slug
+        }
+        fulfillments {
+          status
+          trackingNumber
+          lines {
+            quantity
+            orderLine {
+              id
+            }
+          }
+        }
+        privateMetadata {
+          key
+          value
+        }
+      }
+    }
+  }
+}

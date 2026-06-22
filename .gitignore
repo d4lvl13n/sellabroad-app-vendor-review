@@ -1,0 +1,9 @@
+node_modules/
+.next/
+dist/
+.auth-data.json
+.env
+.env.local
+.env.production.local
+*.tsbuildinfo
+.vercel

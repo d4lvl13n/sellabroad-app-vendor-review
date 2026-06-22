@@ -1,0 +1,43 @@
+mutation TransactionEventReport(
+  $id: ID!
+  $type: TransactionEventTypeEnum!
+  $pspReference: String!
+  $amount: PositiveDecimal
+  $message: String
+  $externalUrl: String
+  $time: DateTime
+  $transactionMetadata: [MetadataInput!]
+  $transactionPrivateMetadata: [MetadataInput!]
+) {
+  transactionEventReport(
+    id: $id
+    type: $type
+    pspReference: $pspReference
+    amount: $amount
+    message: $message
+    externalUrl: $externalUrl
+    time: $time
+    transactionMetadata: $transactionMetadata
+    transactionPrivateMetadata: $transactionPrivateMetadata
+  ) {
+    alreadyProcessed
+    transaction {
+      ...SellAbroadTransaction
+    }
+    transactionEvent {
+      id
+      type
+      pspReference
+      message
+      amount {
+        amount
+        currency
+      }
+    }
+    errors {
+      field
+      code
+      message
+    }
+  }
+}

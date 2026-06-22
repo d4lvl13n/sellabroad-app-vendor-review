@@ -1,0 +1,13 @@
+subscription PaymentGatewayInitializeSession {
+  event {
+    ... on PaymentGatewayInitializeSession {
+      issuedAt
+      version
+      amount
+      data
+      sourceObject {
+        ...SellAbroadSourceObject
+      }
+    }
+  }
+}

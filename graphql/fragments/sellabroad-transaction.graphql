@@ -1,0 +1,22 @@
+fragment SellAbroadTransaction on TransactionItem {
+  id
+  pspReference
+  actions
+  events {
+    id
+    type
+    pspReference
+    message
+    amount {
+      amount
+      currency
+    }
+  }
+  checkout {
+    id
+  }
+  order {
+    id
+    number
+  }
+}
